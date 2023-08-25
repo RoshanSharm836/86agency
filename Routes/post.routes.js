@@ -6,7 +6,7 @@ const postsroutes = express.Router();
 postsroutes.post("/", async (req, res) => {
   try {
     console.log(req.body);
-    const data = await post.create(req.body);
+    const data = await post.create({ ...req.body, likes: 0 });
     return res.status(200).send(data);
   } catch (error) {
     res.status(500).send({ data: error.message });
