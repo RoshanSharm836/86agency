@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import "../style/form.css";
 export default function PostForm() {
   useEffect(() => {
     let id = localStorage.getItem("userID");
@@ -13,7 +14,7 @@ export default function PostForm() {
 
   function handlesubmit(e) {
     e.preventDefault();
-    axios.post(`http://localhost:3059/post`, data).then((data) => {
+    axios.post(`http://localhost:3059/posts`, data).then((data) => {
       console.log(data.data._id);
       localStorage.setItem("userID", data.data._id);
     });
@@ -25,12 +26,15 @@ export default function PostForm() {
     });
   };
   return (
-    <div>
-      <form onSubmit={handlesubmit}>
-        <label htmlFor="">content</label>
-        <input type="text" name="content" onChange={handlechange} required />
-        <input type="submit" value="post" />
-      </form>
+    <div className="container">
+      <div>
+        <h1 className="heading">create post</h1>
+        <form onSubmit={handlesubmit}>
+          <label htmlFor="">content</label>
+          <input type="text" name="content" onChange={handlechange} required />
+          <input className="button-4" type="submit" value="post" />
+        </form>
+      </div>
     </div>
   );
 }

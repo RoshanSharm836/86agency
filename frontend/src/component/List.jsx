@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import Table from "./Table";
-import UserForm from "./UserForm";
 import Editform from "./Editform";
 
 export default function List() {

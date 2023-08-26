@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
+import "../style/table.css";
 export default function Table({
   Current,
   edituser,
@@ -21,7 +22,6 @@ export default function Table({
     <table>
       <thead>
         <tr>
-          <th>id</th>
           <th>name</th>
           <th>Email</th>
           <th>Bio</th>
@@ -34,15 +34,15 @@ export default function Table({
         {Current.map((el, i) => {
           return (
             <tr key={i}>
-              <th>{el._id}</th>
               <th>{el.name}</th>
-              <th>{el.bio}</th>
               <th>{el.email}</th>
+              <th>{el.bio}</th>
               <th>
-                <button>view</button>
+                <button className="button-4">view</button>
               </th>
               <th>
                 <button
+                  className="button-4"
                   onClick={() => {
                     handleupdate(el._id);
                   }}
@@ -52,11 +52,12 @@ export default function Table({
               </th>
               <th>
                 <button
+                  className="button-4"
                   onClick={() => {
                     handledelete(el._id);
                   }}
                 >
-                  delete
+                  🗑️
                 </button>
               </th>
             </tr>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+import "../style/form.css";
 export default function Editform({ setEdituser, id, edituser }) {
   const [data, setData] = useState({});
 

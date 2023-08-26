@@ -32,8 +32,12 @@ usersroutes.get("/:id", async (req, res) => {
 });
 usersroutes.put("/:id", async (req, res) => {
   try {
-    console.log("update");
-    const data = await user.findByIdAndUpdate(req.params.id, req.body);
+    console.log("update", req.body);
+    const { name, bio } = req.body;
+    await user.findByIdAndUpdate(req.params.id, {
+      name: name,
+      bio: bio,
+    });
     res.send({ data: "updated" });
   } catch (error) {
     res.status(500).send({ data: error.message });

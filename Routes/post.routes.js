@@ -12,6 +12,15 @@ postsroutes.post("/", async (req, res) => {
     res.status(500).send({ data: error.message });
   }
 });
+postsroutes.get("/", async (req, res) => {
+  try {
+    console.log("get");
+    const data = await post.find();
+    return res.status(200).send(data);
+  } catch (error) {
+    res.status(500).send({ data: error.message });
+  }
+});
 postsroutes.get("/:id", async (req, res) => {
   try {
     console.log("get");
@@ -48,6 +57,7 @@ postsroutes.post("/:id/like", async (req, res) => {
     console.log(req.params.id);
     const data = await post.findById(req.params.id);
     await post.findByIdAndUpdate(req.params.id, { likes: data.likes + 1 });
+    return res.status(200).send({ data: "liked" });
   } catch (error) {
     res.status(500).send({ data: error.message });
   }
@@ -57,7 +67,7 @@ postsroutes.post("/:id/unlike", async (req, res) => {
     console.log("unlike");
     const data = await post.findById(req.params.id);
     await post.findByIdAndUpdate(req.params.id, { likes: data.likes - 1 });
-    return res.status(200).send(data);
+    return res.status(200).send({ data: "unliked" });
   } catch (error) {
     res.status(500).send({ data: error.message });
   }

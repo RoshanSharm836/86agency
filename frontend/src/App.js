@@ -1,14 +1,10 @@
 import "./App.css";
-import List from "./component/List";
-import PostForm from "./component/PostForm";
-import UserForm from "./component/UserForm";
+import ReactRouter from "./component/ReactRouter";
 
 function App() {
   return (
     <div className="App">
-      {/* <UserForm />
-      <PostForm /> */}
-      <List />
+      <ReactRouter />
     </div>
   );
 }
