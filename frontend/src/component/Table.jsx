@@ -8,6 +8,7 @@ export default function Table({
   settoggle,
   setEdituser,
   setID,
+  del,
 }) {
   function handleupdate(id) {
     setEdituser(!edituser);
@@ -17,7 +18,7 @@ export default function Table({
     axios
       .delete(`https://lime-worried-xerus.cyclic.cloud/users/${id}`)
       .then((data) => {
-        settoggle(true);
+        settoggle(!del);
       });
   }
   return (
@@ -54,7 +55,7 @@ export default function Table({
               </th>
               <th>
                 <button
-                  className="button-4"
+                  className="button-4 red"
                   onClick={() => {
                     handledelete(el._id);
                   }}

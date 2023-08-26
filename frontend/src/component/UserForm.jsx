@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import { useState } from "react";
 export default function UserForm() {
   const [data, setData] = useState({});
+  const name = useRef(null);
+  const email = useRef(null);
+  const bio = useRef(null);
 
   function handlesubmit(e) {
     e.preventDefault();
@@ -12,6 +15,10 @@ export default function UserForm() {
         console.log(data.data._id);
         localStorage.setItem("userID", data.data._id);
       });
+
+    name.current.value = "";
+    email.current.value = "";
+    bio.current.value = "";
   }
   const handlechange = (e) => {
     setData({
@@ -26,6 +33,7 @@ export default function UserForm() {
         <form onSubmit={handlesubmit}>
           <label htmlFor="">name</label>
           <input
+            ref={name}
             type="text"
             name="name"
             maxlength="50"
@@ -33,9 +41,16 @@ export default function UserForm() {
             required
           />
           <label htmlFor="">email</label>
-          <input type="text" name="email" onChange={handlechange} required />
+          <input
+            ref={email}
+            type="text"
+            name="email"
+            onChange={handlechange}
+            required
+          />
           <label htmlFor="">bio</label>
           <input
+            ref={bio}
             type="text"
             name="bio"
             maxlength="200"

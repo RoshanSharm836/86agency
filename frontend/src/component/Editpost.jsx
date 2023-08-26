@@ -1,16 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-import "../style/form.css";
-export default function Editform({ setEdituser, id, edituser }) {
+export default function Editpost({ seettoggle, toggle, id }) {
   const [data, setData] = useState({});
 
   function handlesubmit(e) {
     e.preventDefault();
     axios
-      .put(`https://lime-worried-xerus.cyclic.cloud/users/${id}`, data)
+      .put(`https://lime-worried-xerus.cyclic.cloud/posts/${id}`, data)
       .then((data) => {
-        setEdituser(!edituser);
+        seettoggle(!toggle);
       });
   }
   const handlechange = (e) => {
@@ -22,11 +21,9 @@ export default function Editform({ setEdituser, id, edituser }) {
   return (
     <div>
       <form onSubmit={handlesubmit} style={{ width: "25%" }}>
-        <label htmlFor="">name</label>
-        <input type="text" name="name" onChange={handlechange} required />
+        <label htmlFor="">content</label>
+        <input type="text" name="content" onChange={handlechange} required />
 
-        <label htmlFor="">bio</label>
-        <input type="text" name="bio" onChange={handlechange} required />
         <input className="button-4" type="submit" value="Update" />
       </form>
     </div>

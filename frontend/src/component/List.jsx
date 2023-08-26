@@ -33,6 +33,7 @@ export default function List() {
           setEdituser={setEdituser}
           edituser={edituser}
           setID={setID}
+          del={deleteuser}
         />
       ) : (
         <span class="loader"></span>

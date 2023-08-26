@@ -1,8 +1,9 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useState } from "react";
 import "../style/form.css";
 export default function PostForm() {
+  const context = useRef(null);
   useEffect(() => {
     let id = localStorage.getItem("userID");
     setData({
@@ -20,6 +21,7 @@ export default function PostForm() {
         console.log(data.data._id);
         localStorage.setItem("userID", data.data._id);
       });
+    context.current.value = "";
   }
   const handlechange = (e) => {
     setData({
@@ -34,6 +36,7 @@ export default function PostForm() {
         <form onSubmit={handlesubmit}>
           <label htmlFor="">content</label>
           <input
+            ref={context}
             type="text"
             name="content"
             maxlength="300"

@@ -1,19 +1,39 @@
 import axios from "axios";
 
-export default function PostTable({ Current, seettoggle, toggle }) {
+export default function PostTable({
+  Current,
+  setdel,
+  seettoggle,
+  toggle,
+  setID,
+  del,
+}) {
   function like(id) {
     axios
       .post(`https://lime-worried-xerus.cyclic.cloud/posts/${id}/like`)
       .then((data) => {
         console.log(data.data);
-        seettoggle(!toggle);
+        setdel(!del);
       });
   }
   function unlike(id) {
     axios
       .post(`https://lime-worried-xerus.cyclic.cloud/posts/${id}/unlike`)
       .then((data) => {
-        seettoggle(!toggle);
+        setdel(!del);
+      });
+  }
+
+  function handleupdate(id) {
+    seettoggle(!toggle);
+    setID(id);
+  }
+
+  function handledelete(id) {
+    axios
+      .delete(`https://lime-worried-xerus.cyclic.cloud/posts/${id}`)
+      .then((data) => {
+        setdel(!del);
       });
   }
 
@@ -61,10 +81,24 @@ export default function PostTable({ Current, seettoggle, toggle }) {
                 <button className="button-4">view</button>
               </th>
               <th>
-                <button className="button-4">update</button>
+                <button
+                  className="button-4"
+                  onClick={() => {
+                    handleupdate(el._id);
+                  }}
+                >
+                  update
+                </button>
               </th>
               <th>
-                <button className="button-4">🗑️</button>
+                <button
+                  className="button-4"
+                  onClick={() => {
+                    handledelete(el._id);
+                  }}
+                >
+                  🗑️
+                </button>
               </th>
             </tr>
           );

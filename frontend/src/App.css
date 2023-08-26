@@ -32,6 +32,11 @@
   text-decoration: none;
   transition-duration: 0.1s;
 }
+.red:hover {
+  background-color: #f81b0288;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
 
 .button-4:disabled {
   background-color: #fafbfc;
