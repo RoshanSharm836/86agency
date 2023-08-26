@@ -14,7 +14,7 @@ export default function List() {
   }, [deleteuser, edituser]);
 
   function getlist(e) {
-    axios.get(`http://localhost:3059/users`).then((data) => {
+    axios.get(`https://lime-worried-xerus.cyclic.cloud/users`).then((data) => {
       setData(data.data);
     });
   }

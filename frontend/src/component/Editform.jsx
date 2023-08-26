@@ -7,9 +7,11 @@ export default function Editform({ setEdituser, id, edituser }) {
 
   function handlesubmit(e) {
     e.preventDefault();
-    axios.put(`http://localhost:3059/users/${id}`, data).then((data) => {
-      setEdituser(!edituser);
-    });
+    axios
+      .put(`https://lime-worried-xerus.cyclic.cloud/users/${id}`, data)
+      .then((data) => {
+        setEdituser(!edituser);
+      });
   }
   const handlechange = (e) => {
     setData({

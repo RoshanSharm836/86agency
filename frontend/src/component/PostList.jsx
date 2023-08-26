@@ -12,7 +12,7 @@ export default function PostList() {
   }, [toggle]);
 
   function getlist(e) {
-    axios.get(`http://localhost:3059/posts`).then((data) => {
+    axios.get(`https://lime-worried-xerus.cyclic.cloud/posts`).then((data) => {
       setData(data.data);
     });
   }

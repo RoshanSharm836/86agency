@@ -1,17 +1,20 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
 
 export default function PostTable({ Current, seettoggle, toggle }) {
   function like(id) {
-    axios.post(`http://localhost:3059/posts/${id}/like`).then((data) => {
-      console.log(data.data);
-      seettoggle(!toggle);
-    });
+    axios
+      .post(`https://lime-worried-xerus.cyclic.cloud/posts/${id}/like`)
+      .then((data) => {
+        console.log(data.data);
+        seettoggle(!toggle);
+      });
   }
   function unlike(id) {
-    axios.post(`http://localhost:3059/posts/${id}/unlike`).then((data) => {
-      seettoggle(!toggle);
-    });
+    axios
+      .post(`https://lime-worried-xerus.cyclic.cloud/posts/${id}/unlike`)
+      .then((data) => {
+        seettoggle(!toggle);
+      });
   }
 
   return (

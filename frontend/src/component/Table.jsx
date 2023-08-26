@@ -14,9 +14,11 @@ export default function Table({
     setID(id);
   }
   function handledelete(id) {
-    axios.delete(`http://localhost:3059/users/${id}`).then((data) => {
-      settoggle(true);
-    });
+    axios
+      .delete(`https://lime-worried-xerus.cyclic.cloud/users/${id}`)
+      .then((data) => {
+        settoggle(true);
+      });
   }
   return (
     <table>

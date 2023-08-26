@@ -15,19 +15,23 @@ function Analytics() {
     setloading(false);
   }, []);
   function fetchuserdata() {
-    axios.get(`http://localhost:3059/analytics/users`).then((data) => {
-      setUserData(data.data);
-      console.log(data.data);
-    });
+    axios
+      .get(`https://lime-worried-xerus.cyclic.cloud/analytics/users`)
+      .then((data) => {
+        setUserData(data.data);
+        console.log(data.data);
+      });
   }
   function fetchpostdata() {
-    axios.get(`http://localhost:3059/analytics/posts`).then((data) => {
-      setPostData(data.data);
-    });
+    axios
+      .get(`https://lime-worried-xerus.cyclic.cloud/analytics/posts`)
+      .then((data) => {
+        setPostData(data.data);
+      });
   }
   function fetchlikepost() {
     axios
-      .get(`http://localhost:3059/analytics/posts/top-liked`)
+      .get(`https://lime-worried-xerus.cyclic.cloud/analytics/posts/top-liked`)
       .then((data) => {
         setlikepost(data.data);
       });

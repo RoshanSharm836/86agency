@@ -14,10 +14,12 @@ export default function PostForm() {
 
   function handlesubmit(e) {
     e.preventDefault();
-    axios.post(`http://localhost:3059/posts`, data).then((data) => {
-      console.log(data.data._id);
-      localStorage.setItem("userID", data.data._id);
-    });
+    axios
+      .post(`https://lime-worried-xerus.cyclic.cloud/posts`, data)
+      .then((data) => {
+        console.log(data.data._id);
+        localStorage.setItem("userID", data.data._id);
+      });
   }
   const handlechange = (e) => {
     setData({
