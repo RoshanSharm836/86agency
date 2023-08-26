@@ -31,7 +31,13 @@ export default function PostForm() {
         <h1 className="heading">create post</h1>
         <form onSubmit={handlesubmit}>
           <label htmlFor="">content</label>
-          <input type="text" name="content" onChange={handlechange} required />
+          <input
+            type="text"
+            name="content"
+            maxlength="300"
+            onChange={handlechange}
+            required
+          />
           <input className="button-4" type="submit" value="post" />
         </form>
       </div>

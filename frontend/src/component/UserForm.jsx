@@ -23,11 +23,23 @@ export default function UserForm() {
         <h1 className="heading">create user</h1>
         <form onSubmit={handlesubmit}>
           <label htmlFor="">name</label>
-          <input type="text" name="name" onChange={handlechange} required />
+          <input
+            type="text"
+            name="name"
+            maxlength="50"
+            onChange={handlechange}
+            required
+          />
           <label htmlFor="">email</label>
           <input type="text" name="email" onChange={handlechange} required />
           <label htmlFor="">bio</label>
-          <input type="text" name="bio" onChange={handlechange} required />
+          <input
+            type="text"
+            name="bio"
+            maxlength="200"
+            onChange={handlechange}
+            required
+          />
           <input className="button-4" type="submit" value="submit" />
         </form>
       </div>

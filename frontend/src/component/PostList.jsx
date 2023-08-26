@@ -22,7 +22,7 @@ export default function PostList() {
       {data.length > 0 ? (
         <PostTable Current={data} seettoggle={seettoggle} toggle={toggle} />
       ) : (
-        "loadinng..."
+        <span class="loader"></span>
       )}
     </div>
   );

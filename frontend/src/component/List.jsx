@@ -35,7 +35,7 @@ export default function List() {
           setID={setID}
         />
       ) : (
-        "loadinng..."
+        <span class="loader"></span>
       )}
     </div>
   );
